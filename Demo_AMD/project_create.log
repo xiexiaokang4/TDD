@@ -1,0 +1,73 @@
+D:\Documents\TDD_Demo>ceedling new Demo_AMD
+Welcome to Ceedling!
+      create  Demo_AMD/project.yml
+
+Project 'Demo_AMD' created!
+ - Execute 'ceedling help' from Demo_AMD to view available test & build tasks
+
+
+D:\Documents\TDD_Demo>cd Demo_AMD
+D:\Documents\TDD_Demo\Demo_AMD>ceedling module:create[add]
+File src/add.c created
+File src/add.h created
+File test/test_add.c created
+Generate Complete
+
+D:\Documents\TDD_Demo\Demo_AMD>
+D:\Documents\TDD_Demo\Demo_AMD>
+D:\Documents\TDD_Demo\Demo_AMD>ceedling test:all
+
+
+Test 'test_add.c'
+-----------------
+Generating runner for test_add.c...
+Compiling test_add_runner.c...
+Compiling test_add.c...
+Compiling unity.c...
+Compiling add.c...
+Compiling cmock.c...
+Linking test_add.out...
+build/test/out/c/test_add.o: In function `setUp':
+D:\Documents\TDD_Demo\Demo_AMD/test/test_add.c:7: multiple definition of `setUp'
+build/test/out/c/test_add_runner.o:D:\Documents\TDD_Demo\Demo_AMD/build/test/runners/test_add_runner.c:30: first defined here
+build/test/out/c/test_add.o: In function `tearDown':
+D:\Documents\TDD_Demo\Demo_AMD/test/test_add.c:11: multiple definition of `tearDown'
+build/test/out/c/test_add_runner.o:D:\Documents\TDD_Demo\Demo_AMD/build/test/runners/test_add_runner.c:33: first defined here
+collect2.exe: error: ld returned 1 exit status
+ERROR: Shell command failed.
+> Shell executed command:
+'gcc.exe "build/test/out/c/test_add_runner.o" "build/test/out/c/test_add.o" "build/test/out/c/unity.o" "build/test/out/c/add.o" "build/test/out/c/cmock.o" -o "build/test/out/test_add.out"'
+> And exited with status: [1].
+
+
+NOTICE: If the linker reports missing symbols, the following may be to blame:
+  1. Test lacks #include statements corresponding to needed source files.
+  2. Project search paths do not contain source files corresponding to #include statements in the test.
+  3. Test does not #include needed mocks.
+
+rake aborted!
+
+C:/Ruby27-x64/bin/ceedling:23:in `load'
+C:/Ruby27-x64/bin/ceedling:23:in `<main>'
+
+Caused by:
+ShellExecutionException: ShellExecutionException
+C:/Ruby27-x64/bin/ceedling:23:in `load'
+C:/Ruby27-x64/bin/ceedling:23:in `<main>'
+Tasks: TOP => build/test/results/test_add.pass => build/test/out/test_add.out
+(See full trace by running task with --trace)
+ERROR: Ceedling Failed
+
+D:\Documents\TDD_Demo\Demo_AMD>wmic cpu get Caption,DeviceID,Name,NumberOfCores,NumberOfLogicalProcessors,Architecture
+Architecture  Caption                              DeviceID  Name                                    NumberOfCores  NumberOfLogicalProcessors
+9             AMD64 Family 23 Model 96 Stepping 1  CPU0      AMD Ryzen 5 4600G with Radeon Graphics  6              12
+
+C:\Users\HUAWEI>gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=C:/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=win32 --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-win32-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: win32
+gcc version 8.1.0 (x86_64-win32-seh-rev0, Built by MinGW-W64 project)
+
